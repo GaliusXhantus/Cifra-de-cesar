@@ -1,26 +1,31 @@
 from string import ascii_lowercase as alpha, digits
 
 
-def encrypt(frase, rot=3):
-    frase_encryptada = ''
 
-    for letra in frase:
-        if letra in digits:
-                frase_encryptada += digits[(digits.index(letra) + rot) % 10]
-        else:
-            frase_encryptada += alpha[(alpha.index(letra) + rot) % 26]
+def Cifra(function):
+
+    def interna(frase, rot=3 ):
+        frase_encryptada = ''
+
+        if function.__name__ == 'decrypt':
+            rot = -3
+
+        for letra in frase:
+            if letra in digits:
+                frase_encryptada += digits[(digits.index(letra) + (rot)) % 10]
+            else:
+                frase_encryptada += alpha[(alpha.index(letra) + (rot)) % 26]
     
 
-    return frase_encryptada
+        return frase_encryptada
 
-def decrypt(frase, rot=3):
-    frase_decryptada = ''
+    return interna
 
-    for letra in frase:
-        if letra in digits:
-            frase_decryptada += digits[(digits.index(letra) - rot) % 10]
-        else:
-            frase_decryptada += alpha[(alpha.index(letra) - rot) % 26]
+@Cifra
+def encrypt():
+    return 
 
 
-    return frase_decryptada
+@Cifra
+def decrypt():
+    return 
