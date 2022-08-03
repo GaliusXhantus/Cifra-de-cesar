@@ -46,6 +46,12 @@ class Cifra_de_Cesar(TestCase):
 
         self.assertEqual(encrypt(valor_enviado), valor_esperado)
 
+    def teste_quando_tiver_spaço_deve_adiciona_lo_a_fase(self):
+        valor_enviado = 'z 9'
+        valor_esperado = 'c 2'
+
+        self.assertEqual(encrypt(valor_enviado), valor_esperado)
+
 
 if __name__ == '__main__':
     main()

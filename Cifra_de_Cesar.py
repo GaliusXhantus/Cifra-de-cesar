@@ -1,5 +1,4 @@
-from string import ascii_lowercase as alpha, digits
-
+from string import ascii_lowercase as alpha, digits, punctuation as pontos
 
 
 def Cifra(function):
@@ -13,9 +12,15 @@ def Cifra(function):
         for letra in frase:
             if letra in digits:
                 frase_encryptada += digits[(digits.index(letra) + (rot)) % 10]
+
+            elif letra in pontos:
+                frase_encryptada += letra
+
+            elif letra == ' ':
+                frase_encryptada += ' '
+
             else:
-                frase_encryptada += alpha[(alpha.index(letra) + (rot)) % 26]
-    
+                frase_encryptada += alpha[(alpha.index(letra) + (rot)) % 26]    
 
         return frase_encryptada
 
@@ -24,7 +29,6 @@ def Cifra(function):
 @Cifra
 def encrypt():
     return 
-
 
 @Cifra
 def decrypt():
