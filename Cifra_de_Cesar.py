@@ -7,7 +7,7 @@ def Cifra(function):
         frase_encryptada = ''
 
         if function.__name__ == 'decrypt':
-            rot = -3
+            rot = -rot
 
         for letra in frase:
             if letra in digits:
